@@ -15,9 +15,15 @@ function getNum() {
 function getOp() {
     let op;
 
-    op = prompt("Operator?");
+    while (!validOperators.includes(op)) {
+        op = prompt("Operator?");
+    }
+
+
     return op;
 }
+
+let validOperators = ["+", "-", "/", "*", "="];
 
 let numbers = [];
 let operators = [];
