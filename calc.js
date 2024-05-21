@@ -7,7 +7,7 @@ function getNum() {
     let num;
 
     while (isNaN(num) || num == "") {
-        num = prompt("Number?");
+        num = prompt("Number:");
     }
     return Number(num);
 }
@@ -16,28 +16,51 @@ function getOp() {
     let op;
 
     while (!validOperators.includes(op)) {
-        op = prompt("Operator?");
+        op = prompt("Operator:");
     }
 
 
     return op;
 }
 
+function doMath(num1, num2, op) {
+    let res;
+
+    switch (op) {
+        case "+":
+            res = num1 + num2;
+            break;
+        case "-":
+            res = num1 - num2;
+            break;
+        case "/":
+            res = num1 / num2;
+            break;
+        case "*":
+            res = num1 * num2;
+            break;
+        default:
+            console.log("wops, something went wrong");
+            break;
+    }
+
+    return res;
+}
+
+
 let validOperators = ["+", "-", "/", "*", "="];
 
 let numbers = [];
 let operators = [];
+let result;
+
+console.log("Calc 1.0 | This calculator does not know order of operations");
 
 while (operators[operators.length - 1] != "=") {
     numbers.push(getNum());
     operators.push(getOp());
 
 }
-
-console.log(numbers);
-console.log(operators);
-
-let result;
 
 for (let index = 0; index < numbers.length; index++) {
     if (index == 0) {
@@ -49,31 +72,4 @@ for (let index = 0; index < numbers.length; index++) {
 
 console.log(result);
 
-function doMath(num1, num2, op) {
-    let res;
-
-    switch (op) {
-        case "+":
-            console.log("Adding");
-            res = num1 + num2;
-            break;
-        case "-":
-            console.log("Subtracting");
-            res = num1 - num2;
-            break;
-        case "/":
-            console.log("Dividing");
-            res = num1 / num2;
-            break;
-        case "*":
-            console.log("Multiplying");
-            res = num1 * num2;
-            break;
-        default:
-            console.log("wops");
-            break;
-    }
-
-    return res;
-}
 
