@@ -25,12 +25,23 @@ while (operators[operators.length - 1] != "=") {
 console.log(numbers);
 console.log(operators);
 
+let result;
 
-switch (operators) {
-    case "+":
-        console.log(number + number);
-        break;
-    default:
-        console.log("wops");
-        break;
+for (let index = 0; index < numbers.length; index++) {
+    if (index == 0) {
+        result = numbers[0];
+    } else {
+        result = result + numbers[index];
+    }
 }
+
+console.log(result);
+
+// switch (operators) {
+//     case "+":
+//         console.log(number + number);
+//         break;
+//     default:
+//         console.log("wops");
+//         break;
+// }
