@@ -3,12 +3,18 @@ const prompt = require('prompt-sync')({
 });
 
 
-function getNum(num) {
-    num = Number(prompt("Number?"));
-    return num;
+function getNum() {
+    let num;
+
+    while (isNaN(num) || num == "") {
+        num = prompt("Number?");
+    }
+    return Number(num);
 }
 
-function getOp(op) {
+function getOp() {
+    let op;
+
     op = prompt("Operator?");
     return op;
 }
