@@ -53,12 +53,18 @@ let validOperators = ["+", "-", "/", "*", "="];
 let numbers = [];
 let operators = [];
 let result;
+let fullCalc = "";
 
 console.log("Calc 1.0 | This calculator does not know order of operations");
 
 while (operators[operators.length - 1] != "=") {
-    numbers.push(getNum());
-    operators.push(getOp());
+    let num = getNum()
+    fullCalc += num;
+    numbers.push(num);
+
+    let op = getOp()
+    fullCalc += op;
+    operators.push(op);
 
 }
 
@@ -70,6 +76,7 @@ for (let index = 0; index < numbers.length; index++) {
     }
 }
 
+console.log(fullCalc);
 console.log(result);
 
 
