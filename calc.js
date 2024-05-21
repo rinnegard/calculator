@@ -31,17 +31,37 @@ for (let index = 0; index < numbers.length; index++) {
     if (index == 0) {
         result = numbers[0];
     } else {
-        result = result + numbers[index];
+        result = doMath(result, numbers[index], operators[index - 1]);
     }
 }
 
 console.log(result);
 
-// switch (operators) {
-//     case "+":
-//         console.log(number + number);
-//         break;
-//     default:
-//         console.log("wops");
-//         break;
-// }
+function doMath(num1, num2, op) {
+    let res;
+
+    switch (op) {
+        case "+":
+            console.log("Adding");
+            res = num1 + num2;
+            break;
+        case "-":
+            console.log("Subtracting");
+            res = num1 - num2;
+            break;
+        case "/":
+            console.log("Dividing");
+            res = num1 / num2;
+            break;
+        case "*":
+            console.log("Multiplying");
+            res = num1 * num2;
+            break;
+        default:
+            console.log("wops");
+            break;
+    }
+
+    return res;
+}
+
