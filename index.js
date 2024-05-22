@@ -1,0 +1,1 @@
+console.log("Welcome to Calculator 1.0");
