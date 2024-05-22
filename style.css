@@ -123,3 +123,8 @@ header h1{
 .keyPad {
     display: flex;
 }
+
+.display {
+    color: white;
+    padding: 5px;
+}

@@ -53,6 +53,13 @@ equalButton.addEventListener("click", () => {
     console.log(numbers);
     console.log(operators);
 
+    showResult();
+
     numbers = [];
     operators = []; 
 })
+
+function showResult() {
+    let result = document.querySelector(".calculator p");
+    result.textContent += numbers.toLocaleString();
+}
