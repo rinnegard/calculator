@@ -44,10 +44,13 @@ header h1{
     background: rgb(34, 37, 39);
     max-width: 300px;
     margin: 0 auto;
+
+    display: flex;
+    flex-flow: column;
 }
 
 .calculator input {
-    width: 100%;
+    width: auto;
     margin: 5px;
     margin-bottom: 15px;
     height: 40px;
@@ -67,6 +70,13 @@ header h1{
     width: 40px;
     margin: 5px;
     background-color: white;
+
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.digits button:last-child {
+    width: 155px;
 }
 
 .calculator button:hover {
@@ -89,7 +99,9 @@ header h1{
 }
 
 .digits {
-    width: 80%;
+    display: flex;
+    flex-flow: row-reverse wrap;
+    justify-content: space-evenly;
 }
 
 .digits button {
@@ -97,9 +109,17 @@ header h1{
 }
 
 .operators {
-    width: 20%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
 }
+
+
 
 .operators button {
     border-radius: 20px;
+}
+
+.keyPad {
+    display: flex;
 }
