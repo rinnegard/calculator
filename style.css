@@ -42,13 +42,19 @@ header h1{
     border: 10px solid black;
     padding: 20px;
     background: rgb(34, 37, 39);
+    max-width: 300px;
+    margin: 0 auto;
 }
 
 .calculator input {
     width: 100%;
     margin: 5px;
+    margin-bottom: 15px;
     height: 40px;
     border: none;
+    font-size: 1.5rem;
+    text-align: right;
+
 }
 
 .calculator input:focus {
@@ -82,3 +88,18 @@ header h1{
     outline-color: rgb(184, 247, 232);;
 }
 
+.digits {
+    width: 80%;
+}
+
+.digits button {
+    border-radius: 5px;
+}
+
+.operators {
+    width: 20%;
+}
+
+.operators button {
+    border-radius: 20px;
+}
