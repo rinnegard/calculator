@@ -23,6 +23,8 @@ main {
     background-color: rgb(28, 46, 46);
     flex: 1;
     width: 60%;
+    margin: 0 auto;
+    padding: 10px;
 }
 
 header {
@@ -37,6 +39,46 @@ header h1{
 }
 
 .calculator {
-    border: 5px solid black;
-    width: 400px;
+    border: 10px solid black;
+    padding: 20px;
+    background: rgb(34, 37, 39);
 }
+
+.calculator input {
+    width: 100%;
+    margin: 5px;
+    height: 40px;
+    border: none;
+}
+
+.calculator input:focus {
+    background-color: rgb(219, 248, 241);
+}
+
+.calculator button {
+    border: none;
+    height: 40px;
+    width: 40px;
+    margin: 5px;
+    background-color: white;
+}
+
+.calculator button:hover {
+    background-color: rgb(219, 248, 241);
+    cursor: pointer;
+}
+
+.calculator button:hover {
+    background-color: rgb(219, 248, 241);
+    cursor: pointer;
+}
+
+.calculator button:active {
+    background-color: rgb(144, 248, 224);
+
+}
+
+.calculator button:focus, .calculator input:focus {
+    outline-color: rgb(184, 247, 232);;
+}
+
