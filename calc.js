@@ -8,6 +8,9 @@ function getNum() {
 
     while (isNaN(num) || num == "") {
         num = prompt("Number:");
+        if (isNaN(num) || num == "") {
+            console.log(`"${num}" is not a valid number. Try again.`);
+        }
     }
     return Number(num);
 }
@@ -17,6 +20,10 @@ function getOp() {
 
     while (!validOperators.includes(op)) {
         op = prompt("Operator:");
+
+        if (!validOperators.includes(op)) {
+            console.log(`"${op}" is not a valid operator. Try again.`);
+        }
     }
 
 
