@@ -33,10 +33,26 @@ clearButton.addEventListener("click", () => {
 let input = document.querySelector("#num");
 
 
-let operatorButtons = document.querySelectorAll(".operators button");
+let operatorButtons = document.querySelectorAll(".operator");
+
+let numbers = [];
+let operators = [];
 
 operatorButtons.forEach(button => {
     button.addEventListener("click", () => {
-        console.log(getInput());
+        numbers.push(getInput());
+        operators.push(button.textContent);
     })
 });
+
+let equalButton = document.querySelector("#equal");
+
+equalButton.addEventListener("click", () => {
+    numbers.push(getInput());
+    operators.push(equalButton.textContent);
+    console.log(numbers);
+    console.log(operators);
+
+    numbers = [];
+    operators = []; 
+})
