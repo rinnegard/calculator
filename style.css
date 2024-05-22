@@ -11,6 +11,7 @@ html, body{
 body {
     display: flex;
     flex-flow: column;
+    background-color: rgb(16, 26, 26);
 }
 
 header, footer {
@@ -21,4 +22,21 @@ header, footer {
 main {
     background-color: rgb(28, 46, 46);
     flex: 1;
+    width: 60%;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header h1{
+    font-weight: bolder;
+    text-transform: uppercase;
+}
+
+.calculator {
+    border: 5px solid black;
+    width: 400px;
 }
