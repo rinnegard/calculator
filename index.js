@@ -61,5 +61,5 @@ equalButton.addEventListener("click", () => {
 
 function showResult() {
     let result = document.querySelector(".calculator p");
-    result.textContent += numbers.toLocaleString();
+    result.textContent = numbers.toLocaleString();
 }
