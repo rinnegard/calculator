@@ -1,3 +1,5 @@
+import { doMath } from "calc.js";
+
 console.log("Welcome to Calculator 1.0");
 
 function updateInput(value) {
@@ -64,3 +66,4 @@ function showResult() {
     result.textContent = numbers.toLocaleString();
 }
 
+console.log(doMath(1, 2, "+"));

@@ -1,6 +1,15 @@
-const prompt = require('prompt-sync')({
+// const prompt = require('prompt-sync')({
+//     sigint: true
+// });
+
+import promptSync from 'prompt-sync';
+import { doMath } from "./calcTools.js";
+
+const prompt = promptSync({
     sigint: true
 });
+
+import {  } from "prompt-sync";
 
 
 function getNum() {
@@ -30,29 +39,29 @@ function getOp() {
     return op;
 }
 
-function doMath(num1, num2, op) {
-    let res;
+// function doMath(num1, num2, op) {
+//     let res;
 
-    switch (op) {
-        case "+":
-            res = num1 + num2;
-            break;
-        case "-":
-            res = num1 - num2;
-            break;
-        case "/":
-            res = num1 / num2;
-            break;
-        case "*":
-            res = num1 * num2;
-            break;
-        default:
-            console.log("wops, something went wrong");
-            break;
-    }
+//     switch (op) {
+//         case "+":
+//             res = num1 + num2;
+//             break;
+//         case "-":
+//             res = num1 - num2;
+//             break;
+//         case "/":
+//             res = num1 / num2;
+//             break;
+//         case "*":
+//             res = num1 * num2;
+//             break;
+//         default:
+//             console.log("wops, something went wrong");
+//             break;
+//     }
 
-    return res;
-}
+//     return res;
+// }
 
 
 let validOperators = ["+", "-", "/", "*", "="];
@@ -85,5 +94,7 @@ for (let index = 0; index < numbers.length; index++) {
 
 console.log(fullCalc);
 console.log(result);
+
+export default doMath;
 
 
