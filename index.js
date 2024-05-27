@@ -16,12 +16,26 @@ function clearInput(value) {
     input.value = "";
 }
 
+function reset() {
+    numbers = [];
+    operators = [];
+    let resultDisplay = document.querySelector(".calculator p");
+
+    resultDisplay.textContent = "";
+}
+
+let finished = false;
+
 
 
 let digitButtons = document.querySelectorAll(".digit");
 
 digitButtons.forEach(button => {
     button.addEventListener("click", () => {
+        if (finished) {
+            reset();
+            finished = false;
+        }
         updateInput(button.textContent);
     })
 });
@@ -41,12 +55,8 @@ signButton.addEventListener("click", () => {
 let clearButton = document.querySelector("#clear");
 
 clearButton.addEventListener("click", () => {
+    reset();
     clearInput();
-    numbers = [];
-    operators = [];
-    let resultDisplay = document.querySelector(".calculator p");
-
-    resultDisplay.textContent = "";
 })
 
 let input = document.querySelector("#num");
@@ -80,8 +90,7 @@ equalButton.addEventListener("click", () => {
 
     writeDisplay(getResult());
 
-    numbers = [];
-    operators = []; 
+    finished = true;
 })
 
 function getResult() {
