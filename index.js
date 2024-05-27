@@ -24,7 +24,31 @@ function reset() {
     resultDisplay.textContent = "";
 }
 
+function getResult() {
+    let result;
+
+    for (let index = 0; index < numbers.length; index++) {
+        if (index == 0) {
+            result = numbers[0];
+        } else {
+            result = doMath(result, numbers[index], operators[index - 1]);
+        }
+    }
+
+    return result;
+}
+
+function writeDisplay(result) {
+    let resultDisplay = document.querySelector(".calculator p");
+
+    resultDisplay.textContent += result;
+}
+
 let finished = false;
+let numbers = [];
+let operators = [];
+
+let input = document.querySelector("#num");
 
 
 
@@ -59,13 +83,10 @@ clearButton.addEventListener("click", () => {
     clearInput();
 })
 
-let input = document.querySelector("#num");
+
 
 
 let operatorButtons = document.querySelectorAll(".operator");
-
-let numbers = [];
-let operators = [];
 
 operatorButtons.forEach(button => {
     button.addEventListener("click", () => {
@@ -92,25 +113,3 @@ equalButton.addEventListener("click", () => {
 
     finished = true;
 })
-
-function getResult() {
-    
-    let result;
-
-    for (let index = 0; index < numbers.length; index++) {
-        if (index == 0) {
-            result = numbers[0];
-        } else {
-            result = doMath(result, numbers[index], operators[index - 1]);
-        }
-    }
-
-    return result;
-}
-
-function writeDisplay(result) {
-    let resultDisplay = document.querySelector(".calculator p");
-
-    resultDisplay.textContent += result;
-}
-
