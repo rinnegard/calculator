@@ -1,4 +1,4 @@
-import { doMath } from "calc.js";
+import { doMath } from "./calcTools.js";
 
 console.log("Welcome to Calculator 1.0");
 
@@ -7,7 +7,8 @@ function updateInput(value) {
 }
 
 function getInput() {
-    let val = input.value;
+    let val = Number(input.value);
+    console.log(val);
     clearInput();
     return val;
 }
@@ -62,8 +63,17 @@ equalButton.addEventListener("click", () => {
 })
 
 function showResult() {
-    let result = document.querySelector(".calculator p");
-    result.textContent = numbers.toLocaleString();
+    let resultDisplay = document.querySelector(".calculator p");
+    let result;
+
+    for (let index = 0; index < numbers.length; index++) {
+        if (index == 0) {
+            result = numbers[0];
+        } else {
+            result = doMath(result, numbers[index], operators[index - 1]);
+        }
+    }
+
+    resultDisplay.textContent = result;
 }
 
-console.log(doMath(1, 2, "+"));
