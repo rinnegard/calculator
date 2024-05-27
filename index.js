@@ -90,11 +90,13 @@ let operatorButtons = document.querySelectorAll(".operator");
 
 operatorButtons.forEach(button => {
     button.addEventListener("click", () => {
-        numbers.push(getInput());
-        writeDisplay(input.value);
-        writeDisplay(button.textContent);
-        clearInput();
-        operators.push(button.textContent);
+        if (!input.value == "") {
+            numbers.push(getInput());
+            writeDisplay(input.value);
+            writeDisplay(button.textContent);
+            clearInput();
+            operators.push(button.textContent);
+        }
     })
 });
 
