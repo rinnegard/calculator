@@ -8,7 +8,7 @@ function updateInput(value) {
 
 function getInput() {
     let val = Number(input.value);
-    clearInput();
+    console.log(val);
     return val;
 }
 
@@ -22,10 +22,21 @@ let digitButtons = document.querySelectorAll(".digit");
 
 digitButtons.forEach(button => {
     button.addEventListener("click", () => {
-        writeDisplay(button.textContent);
         updateInput(button.textContent);
     })
 });
+
+let signButton = document.querySelector(".sign");
+
+signButton.addEventListener("click", () => {
+    if (input.value.at(0) == "-") {
+        input.value = input.value.replace("-", "");
+    } else {
+        input.value = "-" + input.value;
+    }
+}
+);
+
 
 let clearButton = document.querySelector("#clear");
 
@@ -49,7 +60,9 @@ let operators = [];
 operatorButtons.forEach(button => {
     button.addEventListener("click", () => {
         numbers.push(getInput());
+        writeDisplay(input.value);
         writeDisplay(button.textContent);
+        clearInput();
         operators.push(button.textContent);
     })
 });
@@ -59,9 +72,11 @@ let equalButton = document.querySelector("#equal");
 equalButton.addEventListener("click", () => {
     numbers.push(getInput());
     operators.push(equalButton.textContent);
+    writeDisplay(input.value);
     writeDisplay(equalButton.textContent);
     console.log(numbers);
     console.log(operators);
+    clearInput();
 
     writeDisplay(getResult());
 
