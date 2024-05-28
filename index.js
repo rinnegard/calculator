@@ -100,7 +100,7 @@ input.addEventListener("keydown", (e) => {
             clearInput();
             operators.push(e.key);
         }
-    } else if (e.key == "=") {
+    } else if (e.key == "=" || e.key == "Enter") {
         e.preventDefault();
         if (input.value != "") {
             numbers.push(getInput());
