@@ -3,6 +3,13 @@ import { doMath } from "./calcTools.js";
 console.log("Welcome to Calculator 1.0");
 
 function updateInput(value) {
+    if (finished) {
+        reset();
+        finished = false;
+    }
+    if (value == "." && input.value.includes(".")) {
+        return
+    }
     input.value = input.value + value;
 }
 
@@ -44,25 +51,27 @@ function writeDisplay(result) {
     resultDisplay.textContent += result;
 }
 
+function addInput(number) {
+    
+}
+
 let finished = false;
 let numbers = [];
 let operators = [];
 
 let input = document.querySelector("#num");
 
-
+input.addEventListener("keydown", (e) => {
+    e.preventDefault();
+    if (!isNaN(Number(e.key)) || e.key == ".") {
+        updateInput(e.key);
+    }
+})
 
 let digitButtons = document.querySelectorAll(".digit");
 
 digitButtons.forEach(button => {
     button.addEventListener("click", () => {
-        if (finished) {
-            reset();
-            finished = false;
-        }
-        if (button.textContent == "." && input.value.includes(".")) {
-            return
-        }
         updateInput(button.textContent);
     })
 });
