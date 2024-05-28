@@ -74,8 +74,15 @@ input.addEventListener("keydown", (e) => {
         if (finished) {
             reset();
         }
-        if (input.value.includes("-") || input.value != "") {
+        if (input.value.includes("-") || e.target.selectionStart != 0) {
             e.preventDefault();
+            if (input.value != "-") {
+                numbers.push(getInput());
+                writeDisplay(input.value);
+                writeDisplay(e.key);
+                clearInput();
+                operators.push(e.key);
+            }
         }
     } else if (e.key == "Backspace") {
     } else if (e.key == "ArrowRight" || e.key == "ArrowLeft") {
