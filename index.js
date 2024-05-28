@@ -59,7 +59,6 @@ let operators = [];
 let input = document.querySelector("#num");
 
 input.addEventListener("keydown", (e) => {
-    console.log(e.key);
     if (!isNaN(Number(e.key))) {
         if (finished) {
             reset();
@@ -77,11 +76,6 @@ input.addEventListener("keydown", (e) => {
         }
         if (input.value.includes("-") || input.value != "") {
             e.preventDefault();
-            numbers.push(getInput());
-            writeDisplay(input.value);
-            writeDisplay(e.key);
-            clearInput();
-            operators.push(e.key);
         }
     } else if (e.key == "Backspace") {
     } else if (e.key == "ArrowRight" || e.key == "ArrowLeft") {
@@ -92,24 +86,29 @@ input.addEventListener("keydown", (e) => {
         }
     } else if (e.key == "+" || e.key == "/" || e.key == "*") {
         e.preventDefault()
-        numbers.push(getInput());
-        writeDisplay(input.value);
-        writeDisplay(e.key);
-        clearInput();
-        operators.push(e.key);
+        if (input.value != "") {
+            numbers.push(getInput());
+            writeDisplay(input.value);
+            writeDisplay(e.key);
+            clearInput();
+            operators.push(e.key);
+        }
     } else if (e.key == "=") {
         e.preventDefault();
-        numbers.push(getInput());
-        operators.push(equalButton.textContent);
-        writeDisplay(input.value);
-        writeDisplay(equalButton.textContent);
-        console.log(numbers);
-        console.log(operators);
-        clearInput();
-    
-        writeDisplay(getResult());
-    
-        finished = true;
+        if (input.value != "") {
+            numbers.push(getInput());
+            operators.push(equalButton.textContent);
+            writeDisplay(input.value);
+            writeDisplay(equalButton.textContent);
+            console.log(numbers);
+            console.log(operators);
+            clearInput();
+        
+            writeDisplay(getResult());
+        
+            finished = true;
+        }
+      
     } else {
         e.preventDefault();
     }
@@ -162,15 +161,18 @@ operatorButtons.forEach(button => {
 let equalButton = document.querySelector("#equal");
 
 equalButton.addEventListener("click", () => {
-    numbers.push(getInput());
-    operators.push(equalButton.textContent);
-    writeDisplay(input.value);
-    writeDisplay(equalButton.textContent);
-    console.log(numbers);
-    console.log(operators);
-    clearInput();
+    if (input.value != "") {
+        numbers.push(getInput());
+        operators.push(equalButton.textContent);
+        writeDisplay(input.value);
+        writeDisplay(equalButton.textContent);
+        console.log(numbers);
+        console.log(operators);
+        clearInput();
 
-    writeDisplay(getResult());
+        writeDisplay(getResult());
 
-    finished = true;
+        finished = true;
+    }
+
 })
