@@ -60,6 +60,9 @@ digitButtons.forEach(button => {
             reset();
             finished = false;
         }
+        if (button.textContent == "." && input.value.includes(".")) {
+            return
+        }
         updateInput(button.textContent);
     })
 });
