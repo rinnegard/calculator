@@ -91,11 +91,7 @@ input.addEventListener("keydown", (e) => {
     } else if (e.key == "+" || e.key == "/" || e.key == "*") {
         e.preventDefault()
         if (input.value != "") {
-            numbers.push(getInput());
-            writeDisplay(input.value);
-            writeDisplay(e.key);
-            clearInput();
-            operators.push(e.key);
+            operatorHandler(e.key);
         }
     } else if (e.key == "=" || e.key == "Enter") {
         e.preventDefault();
@@ -145,11 +141,7 @@ let operatorButtons = document.querySelectorAll(".operator");
 operatorButtons.forEach(button => {
     button.addEventListener("click", () => {
         if (!input.value == "") {
-            numbers.push(getInput());
-            writeDisplay(input.value);
-            writeDisplay(button.textContent);
-            clearInput();
-            operators.push(button.textContent);
+            operatorHandler(button.textContent)
         }
     })
 });
@@ -162,6 +154,14 @@ equalButton.addEventListener("click", () => {
     }
 
 })
+
+function operatorHandler(operator) {
+    numbers.push(getInput());
+    writeDisplay(input.value);
+    writeDisplay(operator);
+    clearInput();
+    operators.push(operator);
+}
 
 function equalsHandler() {
         numbers.push(getInput());
