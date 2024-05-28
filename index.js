@@ -84,12 +84,9 @@ input.addEventListener("keydown", (e) => {
                 operators.push(e.key);
             }
         }
-    } else if (e.key == "Backspace") {
-    } else if (e.key == "ArrowRight" || e.key == "ArrowLeft") {
     } else if (e.key == "e") {
         if (input.value.includes("e") || input.value == "") {
             e.preventDefault();
-
         }
     } else if (e.key == "+" || e.key == "/" || e.key == "*") {
         e.preventDefault()
@@ -110,13 +107,15 @@ input.addEventListener("keydown", (e) => {
             console.log(numbers);
             console.log(operators);
             clearInput();
-        
+
             writeDisplay(getResult());
-        
+
             finished = true;
         }
-      
+    } else if (e.key == "Backspace" || e.key == "ArrowRight" || e.key == "ArrowLeft" || e.key == "Tab" || e.key == "F5") {
+        console.log("Allowed keys, do default.");
     } else {
+        console.log(`Prevented: ${e.key}`);
         e.preventDefault();
     }
 })
@@ -177,7 +176,7 @@ equalButton.addEventListener("click", () => {
         console.log(operators);
         clearInput();
 
-        writeDisplay(getResult());
+        writeDisplay(getResult().toString().slice(0, 6));
 
         finished = true;
     }
