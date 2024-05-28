@@ -100,17 +100,7 @@ input.addEventListener("keydown", (e) => {
     } else if (e.key == "=" || e.key == "Enter") {
         e.preventDefault();
         if (input.value != "") {
-            numbers.push(getInput());
-            operators.push(equalButton.textContent);
-            writeDisplay(input.value);
-            writeDisplay(equalButton.textContent);
-            console.log(numbers);
-            console.log(operators);
-            clearInput();
-
-            writeDisplay(getResult());
-
-            finished = true;
+            equalsHandler();
         }
     } else if (e.key == "Backspace" || e.key == "ArrowRight" || e.key == "ArrowLeft" || e.key == "Tab" || e.key == "F5") {
         console.log("Allowed keys, do default.");
@@ -168,10 +158,16 @@ let equalButton = document.querySelector("#equal");
 
 equalButton.addEventListener("click", () => {
     if (input.value != "") {
+        equalsHandler();
+    }
+
+})
+
+function equalsHandler() {
         numbers.push(getInput());
-        operators.push(equalButton.textContent);
+        operators.push("=");
         writeDisplay(input.value);
-        writeDisplay(equalButton.textContent);
+        writeDisplay("=");
         console.log(numbers);
         console.log(operators);
         clearInput();
@@ -179,6 +175,4 @@ equalButton.addEventListener("click", () => {
         writeDisplay(getResult().toString().slice(0, 6));
 
         finished = true;
-    }
-
-})
+}
