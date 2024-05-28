@@ -19,13 +19,14 @@ function getInput() {
     return val;
 }
 
-function clearInput(value) {
+function clearInput() {
     input.value = "";
 }
 
 function reset() {
     numbers = [];
     operators = [];
+    finished = false;
     let resultDisplay = document.querySelector(".calculator p");
 
     resultDisplay.textContent = "";
@@ -51,10 +52,6 @@ function writeDisplay(result) {
     resultDisplay.textContent += result;
 }
 
-function addInput(number) {
-    
-}
-
 let finished = false;
 let numbers = [];
 let operators = [];
@@ -62,9 +59,34 @@ let operators = [];
 let input = document.querySelector("#num");
 
 input.addEventListener("keydown", (e) => {
-    e.preventDefault();
-    if (!isNaN(Number(e.key)) || e.key == ".") {
-        updateInput(e.key);
+    console.log(e.key);
+    if (!isNaN(Number(e.key))) {
+        if (finished) {
+            reset();
+        }
+    } else if (e.key == ".") {
+        if (finished) {
+            reset();
+        }
+        if (input.value.includes(".")) {
+            e.preventDefault();
+        }
+    } else if (e.key == "-"){
+        if (finished) {
+            reset();
+        }
+        if (input.value.includes("-") || input.value != "") {
+            e.preventDefault();
+        }
+    } else if (e.key == "Backspace") {
+    } else if (e.key == "ArrowRight" || e.key == "ArrowLeft") {
+    } else if (e.key == "e") {
+        if (input.value.includes("e") || input.value == "") {
+            e.preventDefault();
+        }
+        console.log("Backspace");
+    } else {
+        e.preventDefault();
     }
 })
 
